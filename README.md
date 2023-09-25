@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## How to use this template
 
-## Getting Started
+1. Create repository from template
 
-First, run the development server:
+   ```
+   gh repo create --clone --template castdin/quickstart-nextjs --private $projectName
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Install dependencies
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
+   bun install
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## How to update this template
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1.  Clone template repository
 
-## Learn More
+    ```
+    git clone git@github.com:castdin/quickstart-nextjs.git
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+1.  Reset Git index
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```
+    git rm -rf .
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```
+    git clean -fxd
+    ```
 
-## Deploy on Vercel
+    ```
+    git reset
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1.  Re-create NextJS project
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```
+    bunx create-next-app . --typescript --eslint --tailwind --src-dir --app --use-bun
+    ```
+
+1.  Sort dependencies in `package.json`
+
+    ```
+    bunx sort-package-json
+    ```
+
+1.  Add Prettier dependencies
+
+    ```
+    bun add --save --dev prettier@latest eslint-config-prettier@latest prettier-plugin-tailwindcss@latest
+    ```
+
+1.  Create or update the following configuration files:
+
+    - `.editorconfig`
+
+      ```ini
+      root = true
+
+      [*]
+      indent_style = tab
+      insert_final_newline = true
+      trim_trailing_whitespace = true
+
+      ```
+
+    - `.eslintrc.json`
+
+      ```json
+      {
+      	"extends": ["next", "prettier"]
+      }
+      ```
+
+    - `.prettierrc.json`
+
+      ```json
+      {
+      	"plugins": ["prettier-plugin-tailwindcss"]
+      }
+      ```
+
+1.  Run Prettier
+
+    ```
+    bun prettier --write .
+    ```
