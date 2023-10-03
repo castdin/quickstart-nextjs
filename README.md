@@ -12,6 +12,12 @@
    bun install
    ```
 
+3. Install cypress
+
+   ```
+   bun cypress install
+   ```
+
 ## How to update this template
 
 ### Updating dependencies
@@ -112,4 +118,20 @@ jq '.devDependencies | keys[]' package.json | xargs bun add --dev $1
 
     ```
     bun prettier --write .
+    ```
+
+1.  Add Cypress
+
+    ```
+    bun add --dev cypress
+    ```
+
+    ```
+    bun cypress install
+    ```
+
+1.  Generate Cypress files for component testing and E2E testing
+
+    ```
+    bun cypress open
     ```
