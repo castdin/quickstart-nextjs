@@ -14,6 +14,22 @@
 
 ## How to update this template
 
+### Updating dependencies
+
+```
+rm bun.lockb
+```
+
+```
+jq '.dependencies | keys[]' package.json | xargs bun add $1
+```
+
+```
+jq '.devDependencies | keys[]' package.json | xargs bun add --dev $1
+```
+
+### Updating all files
+
 1.  Clone template repository
 
     ```
@@ -40,6 +56,16 @@
     bunx create-next-app . --typescript --eslint --tailwind --src-dir --app --use-bun
     ```
 
+1.  Change dependencies to range versions
+
+    ```
+    jq '.dependencies | keys[]' package.json | xargs bun add $1
+    ```
+
+    ```
+    jq '.devDependencies | keys[]' package.json | xargs bun add --dev $1
+    ```
+
 1.  Sort dependencies in `package.json`
 
     ```
@@ -49,7 +75,7 @@
 1.  Add Prettier dependencies
 
     ```
-    bun add --save --dev prettier@latest eslint-config-prettier@latest prettier-plugin-tailwindcss@latest
+    bun add --dev prettier eslint-config-prettier prettier-plugin-tailwindcss
     ```
 
 1.  Create or update the following configuration files:
