@@ -75,7 +75,7 @@ jq '.devDependencies | keys[]' package.json | xargs bun add --dev $1
 1.  Add Prettier dependencies
 
     ```
-    bun add --dev prettier eslint-config-prettier prettier-plugin-tailwindcss
+    bun add --dev prettier eslint-config-prettier prettier-plugin-tailwindcss prettier-plugin-css-order
     ```
 
 1.  Create or update the following configuration files:
