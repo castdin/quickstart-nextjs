@@ -24,8 +24,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
       - name: Install Playwright dependencies
         run: bunx playwright install --with-deps
-      - name: Start app
-        run: bun start
       - name: Run Playwright E2E tests
         run: npx playwright test
         env:
