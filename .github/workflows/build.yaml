@@ -1,0 +1,15 @@
+name: Build
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: oven-sh/setup-bun@v1
+      - run: bun install
+      - run: bun run build
+      - uses: codecov/codecov-action@v3
+        with:
+          files: ./coverage/coverage-final.json
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
