@@ -14,8 +14,8 @@ jobs:
         uses: oven-sh/setup-bun@v1
       - name: Install app dependencies
         run: bun install
-      - name: Build app (build, lint, run unit tests)
-        run: bun run build
+      - name: Build, lint, run unit tests
+        run: bun ci
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
